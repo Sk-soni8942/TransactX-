@@ -23,6 +23,16 @@ import transactionRouter from "./routes/transaction.route.js";
 
 // routes declaration once
 //app.use("/users", userRouter);
+app.get("/", (req, res) => {
+  res.send(`
+    <h2>Welcome to TransactX API 🚀</h2>
+    <p>Available Routes:</p>
+    <ul>
+      <li>/api/v1/auth</li>
+      <li>/api/v1/transactions</li>
+    </ul>
+  `);
+});
 
 app.use("/api/v2/users", userRouter);
 app.use("/api/v2", transactionRouter);
