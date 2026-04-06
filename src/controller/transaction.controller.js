@@ -41,7 +41,7 @@ const getTransactions = asyncHandler(async (req, res) => {
   return res.status(200).json(new ApiResponse(200, transactions));
 });
 
-// ✅ Update Transaction
+
 const updateTransaction = asyncHandler(async (req, res) => {
   const { transactionId } = req.params;
 
@@ -52,7 +52,7 @@ const updateTransaction = asyncHandler(async (req, res) => {
     throw new Error("Transaction not found");
   }
 
-  // ownership check
+
   if (transaction.user.toString() !== req.user._id.toString()) {
     res.status(403);
     throw new Error("Unauthorized");
@@ -65,7 +65,7 @@ const updateTransaction = asyncHandler(async (req, res) => {
   res.status(200).json(updated);
 });
 
-// ✅ Delete Transaction
+
 const deleteTransaction = asyncHandler(async (req, res) => {
   const { transactionId } = req.params;
 
